@@ -6,16 +6,11 @@ on:
       application-name:
         description: 'Application name'
         required: true
-      environment:
-        description: 'Environment'
-        required: true
-        type: choice
-        options:
-          - sit
-          - uat
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment:
+      name: uat
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
