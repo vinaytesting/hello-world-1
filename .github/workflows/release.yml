@@ -1,0 +1,27 @@
+name: Release and Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      application-name:
+        description: 'Application name'
+        required: true
+      environment:
+        description: 'Environment'
+        required: true
+        type: choice
+        options:
+          - sit
+          - uat
+  jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Anypoint CLI
+        run: |
+          npm install -g anypoint-cli-v4
+      
