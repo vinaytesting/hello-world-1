@@ -13,14 +13,14 @@ on:
         options:
           - sit
           - uat
-  jobs:
-    release:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
-  
-        - name: Set up Anypoint CLI
-          run: |
-            npm install -g anypoint-cli-v4
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Anypoint CLI
+        run: |
+          npm install -g anypoint-cli-v4
       
